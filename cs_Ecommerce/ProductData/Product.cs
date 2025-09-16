@@ -5,7 +5,7 @@
         //Class Variables
         public static double GlobalDiscount = 0.0;
         public static int NextID = 1;
-        private static int TotalCount = 0;
+        public static int TotalCount = 0;
 
         //Object Variables
         public int Id;
@@ -21,6 +21,14 @@
             TotalCount++;
         }
 
+        public virtual string ProductInformation()
+        {
+            return $"Name: {Name} | Brand: {Brand} | Price: {Price}";
+        }
 
+        public virtual string ProductDetails()
+        {
+            return $"[{Id}] Name: {Name} | Brand: {Brand} | Price: {Price}";
+        }
     }
 }
