@@ -30,5 +30,16 @@
         {
             return $"[{Id}] Name: {Name} | Brand: {Brand} | Price: {Price}";
         }
+
+        public virtual double FinalPrice()
+        {
+            double discountFactor = 1 - GlobalDiscount;
+            return Price * discountFactor;
+        }
+
+        public static void SetGlobalDiscountPercent(double percent)
+        {
+            GlobalDiscount = percent / 100;
+        }
     }
 }

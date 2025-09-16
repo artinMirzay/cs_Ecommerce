@@ -55,7 +55,11 @@ namespace cs_Ecommerce
                         Console.ReadKey();
                         break;
                     case 5:
-                        Console.WriteLine("Change Global Discount");
+                        Console.Clear();
+                        ChangeGlobalDiscount();
+                        Console.WriteLine("Discount was added to all products");
+                        Console.WriteLine("press any key to continue");
+                        Console.ReadKey();
                         break;
                     case 6:
                         running = false;
@@ -137,6 +141,13 @@ namespace cs_Ecommerce
                     sum += p.Price;
                 }
                 return sum;
+            }
+
+            static void ChangeGlobalDiscount()
+            {
+                Console.Write("New Discount in %: ");
+                double percent = double.Parse(Console.ReadLine());
+                Product.SetGlobalDiscountPercent(percent);
             }
 
             static void CommonReadKey()
